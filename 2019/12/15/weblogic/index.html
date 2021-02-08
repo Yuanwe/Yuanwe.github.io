@@ -143,23 +143,23 @@
     })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/weblogic.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Yuanw</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Weblogic多机多服务部署</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-15T00:41:27.000Z" title="发表于 2019-12-15 08:41:27">2019-12-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-01-03T02:55:07.192Z" title="更新于 2020-01-03 10:55:07">2020-01-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/weblogic/">weblogic</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2019/12/15/weblogic/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2019/12/15/weblogic/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Weblogic多机多服务部署"><a href="#Weblogic多机多服务部署" class="headerlink" title="Weblogic多机多服务部署"></a>Weblogic多机多服务部署</h1><p>此次以10.128.22.21和10.128.22.22两台服务器为例，来描述应用部署的步骤。并以10.128.22.21:7001作为管理服务器</p>
 <h2 id="主管服务器相关配置"><a href="#主管服务器相关配置" class="headerlink" title="主管服务器相关配置"></a>主管服务器相关配置</h2><h3 id="创建domain"><a href="#创建domain" class="headerlink" title="创建domain"></a>创建domain</h3><p>/home/weblogic/weblog10/wlserver_10.3/common/bin/config.sh</p>
 <p>执行 config.sh</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image001.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image001.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image001.png"></p>
 <p>选择创建新的weblogic域</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image002.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image002.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image002.png"></p>
 <p>选择weblogic Platfrom 组件</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image003.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image003.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image003.png"></p>
 <p>选择要使用的模板这里直接点击下一步即可</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image004.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image004.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image004.png"></p>
 <p>输入需要创建的domain的名称（主管服务器和受管服务器名称建议一致）</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image005.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image005.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image005.png"></p>
 <p>选择默认位置</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image006.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image006.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image006.png"></p>
 <p>根据提示输入用户口令并进行确认</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image007.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image007.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image007.png"></p>
 <p>根据需要选择开发模式或者生产模式这里选择生产模式</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image008.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image008.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image008.png"></p>
 <p>选择预先设置好的JDK</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image009.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image009.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image009.png"></p>
 <p>下一步根据提示创建好domain</p>
 <h3 id="启动weblogic服务"><a href="#启动weblogic服务" class="headerlink" title="启动weblogic服务"></a>启动weblogic服务</h3><p>/home/weblogic/weblog10/user_projects/domains/tpcenter_domain</p>
 <p>执行 startWebLogic.sh</p>
@@ -169,45 +169,45 @@
 <p>目录下创建security文件夹并在文件夹中写入boot.properties</p>
 <p>username=XXXXX</p>
 <p>password=xxxxxx</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image010.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image010.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image010.png"></p>
 <p>之后重新启动weblogic服务，系统会自动读取boot.properties并对用户名和密码进行加密，后续启动无需手动输入weblogic用户名密码</p>
 <h3 id="新建server"><a href="#新建server" class="headerlink" title="新建server"></a>新建server</h3><p>登录domain的控制台，查看环境-&gt;服务器</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image011.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image011.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image011.png"></p>
 <p>点击新建按钮新建Server_21_01</p>
 <p>*如果涉及其他电脑访问 ，请将127.0.0.1改成部署电脑的ip地址</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image012.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image012.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image012.png"></p>
 <p>输入规划的服务器名称Server_21_01，地址、监听端口，点击“完成”返回服务器列表页面，如下图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image013.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image013.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image013.png"></p>
 <h3 id="新建集群"><a href="#新建集群" class="headerlink" title="新建集群"></a>新建集群</h3><p>新建集群，并添加服务器： 在控制台选择“集群”-&gt;“新建”，如下图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image014.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image014.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image014.png"></p>
 <p>新建成功后返回集群列表页面如下图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image015.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image015.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image015.png"></p>
 <p>点击列表中的cluster链接，打开集群配置界面，选择“配置”-&gt;服务器，如图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image016.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image016.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image016.png"></p>
 <p>点击添加按钮将Server_21_01添加到集群中</p>
 <h3 id="新建计算机"><a href="#新建计算机" class="headerlink" title="新建计算机"></a>新建计算机</h3><p>在控制台选择“计算机”-&gt;“新建”，如下图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image017.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image017.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image017.png"></p>
 <p>修改“监听地址”为127.0.0.1（如果涉及其他电脑访问，请将127.0.0.1改成部署电脑的ip地址），其它保持不变，点击“完成”，如图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image018.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image018.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image018.png"></p>
 <p>新建成功，返回计算机列表界面，如图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image019.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image019.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image019.png"></p>
 <p>点击172.31.22.21 点击配置-&gt;服务器点击添加按钮，将Server_21_01添加到计算机172.21.22.21中</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image020.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image020.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image020.png"></p>
 <p>后续server可根据具体需要判断是否选择克隆server，这里由于server属性相同，可选中Server_21_01点击克隆（如不符合克隆条件，可参考以上创建步骤进行创建server）</p>
 <p>这里根据需要克隆出Server_21_02、Server_21_03、Server_21_04端口号分别为8002、8003、8004</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image021.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image021.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image021.png"></p>
 <p>至此，服务器、集群、计算机都已经配置成功，选择“环境”-》服务器，最后结果如图所示</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image022.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image022.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image022.png"></p>
 <h3 id="启动server"><a href="#启动server" class="headerlink" title="启动server"></a>启动server</h3><p>/home/weblogic/weblog10/user_projects/domains/tpcenter_domain/bin</p>
 <p>执行</p>
-<p>sh startManagedWebLogic.sh Server_21_01 <a href="http://172.31.22.21:7001" target="_blank" rel="noopener">http://172.31.22.21:7001</a></p>
+<p>sh startManagedWebLogic.sh Server_21_01 <a target="_blank" rel="noopener" href="http://172.31.22.21:7001/">http://172.31.22.21:7001</a></p>
 <p>根据提示输入用户名密码并在对应server文件夹下建立boot.properties</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image023.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image023.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image023.png"></p>
 <p>启动节点管理器服务</p>
 <p>/home/weblogic/weblog10/wlserver_10.3/server/bin</p>
 <p>执行startNodeManager.sh</p>
 <p>执行后，可以看到 /home/weblogic/weblog10/wlserver_10.3/common/nodemanager路径下 文件夹nodemanager创建了如图以下文件</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image024.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image024.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image024.png"></p>
 <p>关闭node服务并对node服务进行配置主要确保以下属性配置正确</p>
 <p>StartScriptEnabled=true</p>
 <p>ListenAddress=127.0.0.1（*如果涉及多台电脑访问，此处设置成部署电脑的ip地址这里配置172.31.22.21）</p>
@@ -215,21 +215,21 @@
 <p>配置完成之后执行startNodeManager.sh （nohup启动）</p>
 <p>忽略主机签名验证</p>
 <p>在控制台中选择环境-&gt;服务器-&gt;AdminServer-&gt;配置-&gt;SSL，主机签名验证选择无如下图所示：</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image025.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image025.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image025.png"></p>
 <p>点击“高级”，选择“主机名验证”为“无”，点击“保存” 同理，依次设置其他server的SSL主机名验证为“无”</p>
 <p>因为主机名验证，需要重启后才生效，否则server与节点管理器之间的SSL握手不成功，节点管理器日志会报错，因此一定要重启weblogic服务</p>
 <p>Weblogic服务启动完毕之后登陆控制台启动</p>
 <p>Server_21_01、Server_21_02、Server_21_03、Server_21_04</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image026.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image026.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image026.png"></p>
 <h2 id="受管服务器相关配置"><a href="#受管服务器相关配置" class="headerlink" title="受管服务器相关配置"></a>受管服务器相关配置</h2><p>根据以上步骤创建domain 并新建所需server 此处不再赘述（主机2 作为受管服务器域名要和管理服务器域名及路径一致）</p>
 <p>在管理服务器中配置受管服务器如下图</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image027.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image027.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image027.png"></p>
 <h3 id="主管服务器配置"><a href="#主管服务器配置" class="headerlink" title="主管服务器配置"></a>主管服务器配置</h3><p>创建受管服务器对应的计算机如下图</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image028.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image028.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image028.png"></p>
 <p>该计算机对应的为受管服务器计算机需要将通信类型修改为普通</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image029.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image029.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image029.png"></p>
 <p>在该受管计算机中添加受管服务器</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image030.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image030.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image030.png"></p>
 <h3 id="受管服务器配置"><a href="#受管服务器配置" class="headerlink" title="受管服务器配置"></a>受管服务器配置</h3><p>在受管服务器主机中使用 wlst 工具从管理服务器中同步节点管理器机密文件</p>
 <p>(nm_password.properties) SerializedSystemIni.dat</p>
 <p>更新/nodemanager 目录下 nodemanager.domains 文件中的域信息。</p>
@@ -240,22 +240,22 @@
 <p>执行 wlst 工具</p>
 <p>/home/weblogic/weblog10/wlserver_10.3/common/bin</p>
 <p>wlst.sh</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image031.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image031.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image031.png"></p>
 <p>在 wls:/offline&gt;中输入 connect 命令， 连接管理服务器， t3 为 weblogic 协议不可修改： connect</p>
 <p>(‘管理服务器用户名’,’管理服务器密码’,’t3://管理服务器 ip:端口’)</p>
 <p>提示如下信息</p>
 <p>connect (‘weblogic’,‘weblogic@2017’,’t3://172.31.22.19:7001’)</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image032.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image032.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image032.png"></p>
 <p>在 wls:/offline&gt;中输入 nmEnroll 命令，从管理服务器中下载文件：</p>
 <p>nmEnroll([domainDir], [nmHome])</p>
 <p>domainDir ： 保 存 节 点 管 理 器 的 机 密 文 件 (nm_password.properties) 和SerializedSystemIni.dat 文件的域目录的路径</p>
 <p>nmHome：节点管理器主目录的路径</p>
 <p>nmEnroll(‘/home/weblogic/weblog10/user_projects/domains/ydpic_domain/‘,’/home/weblogic/weblog10/wlserver_10.3/common/nodemanager/‘)</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image033.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image033.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image033.png"></p>
 <p>退出 wlst 工具命令：exit()</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image034.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image034.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image034.png"></p>
 <p>在 受 管 服 务 器 中 ， 修 改 nodemanager.properties 启 动 配 置 文 件 ， 路 径 为</p>
-<p><bea_home>/wlserver_12.1/common/nodemanager/nodemanager.properties</bea_home></p>
+<p><BEA_HOME>/wlserver_12.1/common/nodemanager/nodemanager.properties</p>
 <p>修改如下内容</p>
 <p>ListenAddress=为本机 ip 地址</p>
 <p>ListenPort=节点管理器监听端口</p>
@@ -263,38 +263,38 @@
 <p>在受管服务器主机中启动节点管理器，节点管理器启动</p>
 <p>在管理控制台关联受管服务器对应的应用，启动即可。</p>
 <h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>进入weblogic管理界面点击部署 安装</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image035.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image035.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image035.png"></p>
 <p>找到对应的项目路径</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image036.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image036.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image036.png"></p>
 <p>下一步</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image037.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image037.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image037.png"></p>
 <p>选择需要部署的server</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image038.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image038.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image038.png"></p>
 <p>配置部署信息</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image039.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image039.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image039.png"></p>
 <p>源可访问性需要修改为，以提供所有目标将访问此应用程序文件的位置。这通常是一个共享目录。必须确保应用程序文件存在于此位置, 且每个目标都可以访问此位置。</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image040.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image040.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image040.png"></p>
 <p>点击完成</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image041.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image041.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image041.png"></p>
 <p>点击激活更改</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image042.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image042.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image042.png"></p>
 <p>查看部署状态</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image043.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image043.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image043.png"></p>
 <h2 id="数据源配置"><a href="#数据源配置" class="headerlink" title="数据源配置"></a>数据源配置</h2><p>进入weblogic 管理界面点击 服务-数据源-新建</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image044.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image044.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image044.png"></p>
 <p>新建一般数据源</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image045.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image045.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image045.png"></p>
 <p>数据源名称可自定义，例如JDBC_INT_TEST</p>
 <p>JNDI名称需和weblogic.xml中保持一致，建议JNDI名称和weblogic.xml 、web.xml中均保持一致。选择相应的数据库类型</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image046.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image046.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image046.png"></p>
 <p>以及对应的数据库驱动程序</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image047.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image047.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image047.png"></p>
 <p>根据数据库连接信息配置JDBC数据源，点击下一步点击测试配置可检测是否连接成功</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image048.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image048.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image048.png"></p>
 <p>选择数据源目标，可指向一个或多个server，也可以指向集群服务</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image049.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image049.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image049.png"></p>
 <p>数据源配置完毕之后点击激活更改完成数据源配置</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image050.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image050.png" class="lazyload"></a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image050.png"></p>
 <h2 id="相关编码配置"><a href="#相关编码配置" class="headerlink" title="相关编码配置"></a>相关编码配置</h2><p>修改服务器编码</p>
 <p>1、执行命令echo $LANG查看编码格式；</p>
 <p>2、如果编码格式不是zh_CN.gb18030,则使用命令vi .bash_profile,输入export LANG=zh_CN.gb18030;</p>
@@ -315,8 +315,8 @@
 <h3 id="2、admin-server与manager-server内存分配缺陷带来的影响"><a href="#2、admin-server与manager-server内存分配缺陷带来的影响" class="headerlink" title="2、admin server与manager server内存分配缺陷带来的影响"></a>2、admin server与manager server内存分配缺陷带来的影响</h3><p>​    (1)、多套系统共用服务器，以分别创建不同域的方式区分系统，或，一套系统，不同的模块分别以创建不同域来隔离模块服务的方式，形成了一台Weblogic服务器上创建了多个域的情况，每一个域必定有一个Admin Server，使得多个Admin server存在于同一台服务器上的现实情况，在大型公司中，由于中间件服务器数量的庞大，对硬件设备的浪费是惊人的。</p>
 <p>​    (2)、在内存配置本身不富裕的系统中，浪费的大量内存使得系统性能急剧下降，甚至引起服务器停止响应与down机</p>
 <p>​    (3)、由于Admin Server浪费了不必要的内存空间，原本可以将多套系统Weblogic共同部署于同一台服务器即可解决的，不得不再多配置一台服务器设备，不仅是硬件设备资源的浪费，还会加大运维人力资源的投入、电力资源的投入、机房空间资源的投入、网络设备资源的投入等等</p>
-<h3 id="3、优化策略"><a href="#3、优化策略" class="headerlink" title="3、优化策略"></a>3、优化策略</h3><h4 id="3-1内存获取方式架构设计优化调整"><a href="#3-1内存获取方式架构设计优化调整" class="headerlink" title="3.1内存获取方式架构设计优化调整"></a>3.1内存获取方式架构设计优化调整</h4><h5 id="3-1-1优化前旧架构（默认）"><a href="#3-1-1优化前旧架构（默认）" class="headerlink" title="3.1.1优化前旧架构（默认）"></a>3.1.1优化前旧架构（默认）</h5><p> <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image051.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image051.jpg" class="lazyload"></a></p>
-<h5 id="3-1-2优化后新架构"><a href="#3-1-2优化后新架构" class="headerlink" title="3.1.2优化后新架构"></a>3.1.2优化后新架构</h5><p> <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image052.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image052.jpg" class="lazyload"></a></p>
+<h3 id="3、优化策略"><a href="#3、优化策略" class="headerlink" title="3、优化策略"></a>3、优化策略</h3><h4 id="3-1内存获取方式架构设计优化调整"><a href="#3-1内存获取方式架构设计优化调整" class="headerlink" title="3.1内存获取方式架构设计优化调整"></a>3.1内存获取方式架构设计优化调整</h4><h5 id="3-1-1优化前旧架构（默认）"><a href="#3-1-1优化前旧架构（默认）" class="headerlink" title="3.1.1优化前旧架构（默认）"></a>3.1.1优化前旧架构（默认）</h5><p> <img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image051.jpg"></p>
+<h5 id="3-1-2优化后新架构"><a href="#3-1-2优化后新架构" class="headerlink" title="3.1.2优化后新架构"></a>3.1.2优化后新架构</h5><p> <img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/yuanwe/CDN@latest/Blog/weblogic/clip_image052.jpg"></p>
 <p>3.2 <strong>内存获取配置代码调整</strong></p>
 <p>​    为每个DOMAIN（域）的bin目录下startWebLogic.sh文件，增加以下内容：</p>
 <p>​    在 echo “JAVA Memory arguments:${MEM_ARGS}” 前面加入如下行：</p>
